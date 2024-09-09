@@ -143,12 +143,12 @@ void resetToes(){
 int checkWin(){
 	int currWin = getWinner();
 	if(currWin != 0){
-		cls();
+		system("cls");
 		drawToes();
 		if(currWin == 1){printf("YOU WON!");}else{printf("YOU LOST!");}
 		return true;
 	}else if(boardFull() == true){
-		cls();
+		system("cls");
 		drawToes();
 		printf("TIE!");
 		return true;
@@ -157,7 +157,7 @@ int checkWin(){
 }
 
 void gameLoop(){
-	cls();
+	system("cls");
 	drawToes();
     while(true){
 		int x; int y;
@@ -168,23 +168,12 @@ void gameLoop(){
 		if(checkWin()){return;}
 		doSomething();
 		if(checkWin()){return;}
-		cls();
+		system("cls");
 		drawToes();
 	}
 }
 
-void cls(){
-	#ifdef linux
-		system("clear");
-	#endif
-	#ifdef _WIN32
-		system("cls");
-	#endif
-}
-
 int main(){
-	int num;
-	scanf("%d",&num);
 	srand(time(NULL));
 	while(true){
 		gameLoop();
