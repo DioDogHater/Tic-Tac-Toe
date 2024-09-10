@@ -27,6 +27,15 @@ int abs(int x){
 	return x;
 }
 
+void cls(){
+	#ifdef linux
+		system("clear");
+	#endif
+	#ifdef _WIN32
+		system("cls");
+	#endif
+}
+
 void drawToes(){
     for(int y = -1; y < 3; y++){
         for(int x = -1; x < 3; x++){
@@ -171,15 +180,6 @@ void gameLoop(){
 		cls();
 		drawToes();
 	}
-}
-
-void cls(){
-	#ifdef linux
-		system("clear");
-	#endif
-	#ifdef _WIN32
-		system("cls");
-	#endif
 }
 
 int main(){
